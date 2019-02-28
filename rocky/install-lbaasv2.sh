@@ -10,7 +10,8 @@ source /root/admin-openrc.sh
 
 export DEBIAN_FRONTEND=noninteractive
 interface=ens3
-my_ip=`ifconfig $interface | grep "inet addr" | awk '{split($2, a, ":"); print a[2];}'`
+#my_ip=`ifconfig $interface | grep "inet addr" | awk '{split($2, a, ":"); print a[2];}'`
+my_ip=`ifconfig ens3 | grep "inet " | awk '{print $2}'`
 
 # lbaas
 git clone https://github.com/openstack/neutron-lbaas
